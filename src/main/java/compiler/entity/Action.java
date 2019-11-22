@@ -1,4 +1,4 @@
-package compilator.entity;
+package compiler.entity;
 
 import com.opencsv.bean.CsvBindByPosition;
 import lombok.Data;

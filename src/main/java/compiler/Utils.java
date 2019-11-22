@@ -1,7 +1,7 @@
-package compilator;
+package compiler;
 
 import com.opencsv.*;
-import compilator.entity.Action;
+import compiler.entity.Action;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Utils {
 
-    private static String filePath = "C:\\Foo\\work\\compilator\\logs.csv";
+    private static String filePath = "C:\\Foo\\work\\RPA_Compiler\\logs.csv";
 
     public static void writeDataLineByLine(String filePath, String data) {
         File file = new File(filePath);

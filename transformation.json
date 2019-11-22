@@ -1,0 +1,16 @@
+[
+  {
+    "id": "Name_First",
+    "data_transformation": [
+      "f_split_w(t, 0)",
+      "f_drop(t, 1)"
+    ]
+  },
+  {
+    "id": "Name_Last",
+    "data_transformation": [
+      "f_split_w(t, 0)",
+      "f_drop(t, 0)"
+    ]
+  }
+]
