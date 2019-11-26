@@ -117,42 +117,6 @@ public class ScriptBuilder {
         }
     }
 
-//    private void appendNamespacesForImplementation(Element rootElement) {
-//        Element namespacesForImplementationString = doc.createElement("TextExpression.NamespacesForImplementation");
-//
-//        Element scoCollection = doc.createElement("sco:Collection");
-//        scoCollection.setAttribute("x:TypeArguments", "x:String");
-//        namespacesForImplementationString.appendChild(scoCollection);
-//
-//        Element UiPathCore = doc.createElement("String");
-//        UiPathCore.setTextContent("UiPath.Core");
-//        scoCollection.appendChild(UiPathCore);
-//
-//        Element UiPathCoreActivities = doc.createElement("String");
-//        UiPathCoreActivities.setTextContent("UiPath.Core.Activities");
-//        scoCollection.appendChild(UiPathCoreActivities);
-//
-//        Element SystemActivities = doc.createElement("String");
-//        SystemActivities.setTextContent("System.Activities");
-//        scoCollection.appendChild(SystemActivities);
-//
-//        Element System = doc.createElement("String");
-//        System.setTextContent("System");
-//        scoCollection.appendChild(System);
-//
-//        Element SystemCollectionsGeneric = doc.createElement("String");
-//        SystemCollectionsGeneric.setTextContent("System.Collections.Generic");
-//        scoCollection.appendChild(SystemCollectionsGeneric);
-//
-//        Element SystemData = doc.createElement("String");
-//        SystemData.setTextContent("System.Data");
-//        scoCollection.appendChild(SystemData);
-//
-//        Element SystemTextRegularExpressions = doc.createElement("String");
-//        SystemTextRegularExpressions.setTextContent("System.Text.RegularExpressions");
-//        scoCollection.appendChild(SystemTextRegularExpressions);
-//    }
-
     public Element createDoSequence() {
         doSequence = doc.createElement("Sequence");
         doSequence.setAttribute("DisplayName", "Do");
@@ -182,28 +146,4 @@ public class ScriptBuilder {
     public void setDoSequence(Element doSequence) {
         this.doSequence = doSequence;
     }
-
-//    public void addInvokeCode(String code) {
-//        Element invokeCode = doc.createElement("ui:InvokeCode");
-//        invokeCode.setAttribute("Language", "CSharp");
-//        invokeCode.setAttribute("Code", code);
-//
-//        Element invokeCodeArguments = doc.createElement("ui:InvokeCode.Arguments");
-//        invokeCode.appendChild(invokeCodeArguments);
-//
-//        Element inArgument = doc.createElement("InArgument");
-//        inArgument.setAttribute("x:TypeArguments", "scg:List(x:String)");
-//        inArgument.setAttribute("x:Key", "t");
-//        inArgument.setTextContent("[t]");
-//
-//        Element outArgument = doc.createElement("OutArgument");
-//        outArgument.setAttribute("x:TypeArguments", "x:String");
-//        outArgument.setAttribute("x:Key", "transformed_value");
-//        outArgument.setTextContent("[transformed_value]");
-//
-//        invokeCodeArguments.appendChild(inArgument);
-//        invokeCodeArguments.appendChild(outArgument);
-//
-//        doSequence.appendChild(invokeCode);
-//    }
 }
