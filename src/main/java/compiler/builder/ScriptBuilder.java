@@ -139,7 +139,7 @@ public class ScriptBuilder {
                 createBrowserScope(doSequence);
                 break;
             default:
-                throw new IllegalArgumentException("Wrong application compilator.scope.Scope!");
+                throw new IllegalArgumentException("Wrong application scope!");
         }
     }
 
