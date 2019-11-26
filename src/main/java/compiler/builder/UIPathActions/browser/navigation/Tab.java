@@ -1,6 +1,7 @@
 package compiler.builder.UIPathActions.browser.navigation;
 
 import compiler.builder.ScriptBuilder;
+import compiler.builder.Variables;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -31,6 +32,7 @@ public interface Tab {
         browserScope.setAttribute("BrowserType", "Chrome");
         browserScope.setAttribute("DisplayName", "Attach Browser");
         browserScope.setAttribute("Selector", "&lt;html app='chrome.exe' title='" + title + "'/&gt;");
+        browserScope.setAttribute("UiBrowser", "[" + Variables.BROWSER + "]");
         return browserScope;
     }
 }

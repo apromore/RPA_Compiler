@@ -1,5 +1,23 @@
 [
   {
+    "id": "date",
+    "data_transformation": [
+      "f_split(t, 0, '/')",
+      "f_join_char(t, 1, '-')",
+      "f_join_char(t, 0, '-')"
+    ]
+  },
+  {
+    "id": "countrycode",
+    "data_transformation": [
+      "f_split_first(t, 0, ' ')",
+      "f_drop(t, 0)",
+      "f_split_w(t, 0)",
+      "f_join_char(t, 1, '-')",
+      "f_join_char(t, 0, '-')"
+    ]
+  },
+  {
     "id": "Name_First",
     "data_transformation": [
       "f_split_w(t, 0)",
@@ -10,6 +28,15 @@
     "id": "Name_Last",
     "data_transformation": [
       "f_split_w(t, 0)",
+      "f_drop(t, 0)"
+    ]
+  },
+  {
+    "id": "Address_ZipCode",
+    "data_transformation": [
+      "f_split_first(t, 0, ',')",
+      "f_drop(t, 0)",
+      "f_extract(t, 0, '\\d+')",
       "f_drop(t, 0)"
     ]
   }

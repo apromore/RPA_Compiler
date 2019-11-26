@@ -35,6 +35,12 @@ public class Imports extends UIPathElement {
         Element generic = doc.createElement("x:String");
         generic.setTextContent("System.Collections.Generic");
         imports.add(generic);
+        Element regularExpressions = doc.createElement("x:String");
+        regularExpressions.setTextContent("System.Text.RegularExpressions");
+        imports.add(regularExpressions);
+        Element linq = doc.createElement("x:String");
+        linq.setTextContent("System.Linq");
+        imports.add(linq);
 
         imports.forEach(collection::appendChild);
     }

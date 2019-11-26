@@ -44,6 +44,9 @@ public class EditField extends UIPathElement {
         typeInto.setAttribute("EmptyField", "False");
         typeInto.setAttribute("SendWindowMessages", "False");
         typeInto.setAttribute("SimulateType", "True");
+        typeInto.setAttribute("DelayBetweenKeys", "0");
+        typeInto.setAttribute("DelayBefore", "0");
+        typeInto.setAttribute("DelayMS", "0");
     }
 
     @Override
