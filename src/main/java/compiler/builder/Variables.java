@@ -6,6 +6,8 @@ public class Variables extends UIPathElement {
     public static final String CLIPBOARD = "clipboard";
     public static final String DATA_TABLE = "dataTable";
     public static final String BROWSER = "currentBrowser";
+    public static final String TRANSFORMED_VALUE = "transformed_value";
+    public static final String T_LIST = "t";
     private Element variables;
 
     public Variables() {
@@ -15,7 +17,6 @@ public class Variables extends UIPathElement {
         createCurrentBrowserVariable();
         createDataTableVariable();
         createTransformedValue();
-        createVariableT();
     }
 
     private void createClipboardVariable() {
@@ -44,19 +45,10 @@ public class Variables extends UIPathElement {
 
     private void createTransformedValue() {
         Element transformedValue = doc.createElement("Variable");
-        transformedValue.setAttribute("Name", "transformed_value");
+        transformedValue.setAttribute("Name", TRANSFORMED_VALUE);
         transformedValue.setAttribute("x:TypeArguments", "x:String");
 
         variables.appendChild(transformedValue);
-    }
-
-    private void createVariableT() {
-        Element t = doc.createElement("Variable");
-        t.setAttribute("Name", "t");
-        t.setAttribute("x:TypeArguments", "scg:List(x:String)");
-        t.setAttribute("Default", "[new List(of string)]");
-
-        variables.appendChild(t);
     }
 
     @Override

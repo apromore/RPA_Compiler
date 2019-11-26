@@ -17,6 +17,7 @@ public class DataTransformer {
 
     public DataTransformer() {
         transformations = new HashMap<>();
+        ReadDataTransformationFromFile();
     }
 
     public void ReadDataTransformationFromFile() {
@@ -45,5 +46,9 @@ public class DataTransformer {
             List<String> instructions = (List<String>) transformationObject.get("data_transformation");
             transformations.put(id, instructions);
         });
+    }
+
+    public boolean isDataTransformationPresent(String id) {
+        return transformations.containsKey(id);
     }
 }

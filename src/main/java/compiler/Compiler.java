@@ -16,12 +16,6 @@ public class Compiler {
 
     public static void main(String[] args) {
         List<Action> actions = Utils.readLog();
-
-        DataTransformer dataTransformer = new DataTransformer();
-        dataTransformer.ReadDataTransformationFromFile();
-        System.out.println(StringEscapeUtils.escapeXml11(dataTransformer.createTransformation("Name_First")).
-                replaceAll("\n", "&#xD;&#xA;"));
-
         scriptBuilder = new ScriptBuilder();
         boolean newExcelScope = true;
         boolean newChromeScope = true;
@@ -43,8 +37,6 @@ public class Compiler {
             }
 
             if (!addElement(action)) {
-//                scriptCreator.addInvokeCode(StringEscapeUtils.escapeXml11(dataTransformer.createTransformation("Name_First")).
-//                        replaceAll("\n", "&#xD;&#xA;"));
                 continue;
             }
 

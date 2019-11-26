@@ -1,5 +1,6 @@
 package compiler.builder.UIPathActions.browser;
 
+import compiler.builder.UIPathActions.InvokeCode;
 import compiler.builder.UIPathElement;
 import compiler.builder.Variables;
 import compiler.entity.Action;
@@ -8,9 +9,11 @@ import org.w3c.dom.Element;
 public class Paste extends UIPathElement {
     private Element typeInto;
     private Action action;
+    private InvokeCode invokeCode;
 
     public Paste(Element doSequence, Action action) {
         this.action = action;
+        invokeCode = new InvokeCode(doSequence, action.getTargetName(), Variables.CLIPBOARD);
         createPaste(doSequence);
     }
 
@@ -38,7 +41,8 @@ public class Paste extends UIPathElement {
         typeInto.setAttribute("EmptyField", "False");
         typeInto.setAttribute("SendWindowMessages", "False");
         typeInto.setAttribute("SimulateType", "True");
-        typeInto.setAttribute("Text", "[" + Variables.CLIPBOARD + "]");
+        String text = invokeCode.isElementPresent ? Variables.TRANSFORMED_VALUE : Variables.CLIPBOARD;
+        typeInto.setAttribute("Text", "[" + text + "]");
     }
 
     @Override

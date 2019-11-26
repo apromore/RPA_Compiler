@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-class Functions {
+public class Functions {
 
     private static Map<String, Function<List<String>, String>> functions;
 
@@ -26,13 +26,17 @@ class Functions {
     }
 
     static String assignTransformedValue() {
-        return "transformed_value = String.Join(\" \", t.ToArray());";
+        return "transformed_value = String.Concat(t.ToArray());";
+    }
+
+    public static String getNewListFunction(String element) {
+        return "List<string> t = new List<string> { " + element + " };\n";
     }
 
     private static String fSplitW(List<String> args) {
         String index = args.get(1);
 
-        return "List<String> split = new List<String>(t[" + index + "].Split(' '));\n" +
+        return "string[] split = t[" + index + "].Split(' ');\n" +
                 "t.RemoveAt(" + index + ");\n" +
                 "t.InsertRange(" + index + ", split);\n";
     }
@@ -47,7 +51,7 @@ class Functions {
         String index = args.get(1);
         String symbol = args.get(2);
 
-        return "List<String> split = new List<String>(t[" + index + "].Split('" + symbol + "'));\n" +
+        return "string[] split = t[" + index + "].Split('" + symbol + "');\n" +
                 "t.RemoveAt(" + index + ");\n" +
                 "t.InsertRange(" + index + ", split);\n";
     }
