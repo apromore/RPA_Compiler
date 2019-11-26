@@ -7,7 +7,6 @@ public class Variables extends UIPathElement {
     public static final String DATA_TABLE = "dataTable";
     public static final String BROWSER = "currentBrowser";
     public static final String TRANSFORMED_VALUE = "transformed_value";
-    public static final String T_LIST = "t";
     private Element variables;
 
     public Variables() {

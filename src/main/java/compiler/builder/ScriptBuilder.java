@@ -36,9 +36,11 @@ public class ScriptBuilder {
         createElementsMap();
 
         Activity activity = new Activity();
-        mainSequence = new MainSequence();
+        Imports imports = new Imports();
         Variables variables = new Variables();
+        mainSequence = new MainSequence();
 
+        activity.appendChild(imports);
         activity.appendChild(mainSequence).appendChild(variables);
     }
 

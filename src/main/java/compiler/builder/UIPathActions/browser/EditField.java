@@ -1,15 +1,19 @@
 package compiler.builder.UIPathActions.browser;
 
+import compiler.builder.UIPathActions.InvokeCode;
 import compiler.builder.UIPathElement;
+import compiler.builder.Variables;
 import compiler.entity.Action;
 import org.w3c.dom.Element;
 
 public class EditField extends UIPathElement {
     private Element typeInto;
     private Action action;
+    private InvokeCode invokeCode;
 
     public EditField(Element doSequence, Action action) {
         this.action = action;
+        invokeCode = new InvokeCode(doSequence, action.getTargetName(), "\"" + action.getTargetValue() + "\"");
         createTypeInto(doSequence);
     }
 
@@ -31,7 +35,10 @@ public class EditField extends UIPathElement {
 
     private void setTypeIntoAttributes() {
         typeInto.setAttribute("DisplayName", "Edit Field");
-        typeInto.setAttribute("Text", action.getTargetValue());
+        String transformedValue = "[" + Variables.TRANSFORMED_VALUE + "]";
+        String actionValue = "\"" + action.getTargetValue() + "\"";
+        String text = invokeCode.isElementPresent ? transformedValue : actionValue;
+        typeInto.setAttribute("Text", text);
         typeInto.setAttribute("Activate", "True");
         typeInto.setAttribute("ClickBeforeTyping", "False");
         typeInto.setAttribute("EmptyField", "False");
