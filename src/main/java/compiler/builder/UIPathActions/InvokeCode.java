@@ -41,6 +41,11 @@ public class InvokeCode extends UIPathElement {
         inClipboard.setAttribute("x:Key", Variables.CLIPBOARD);
         inClipboard.setTextContent("[" + Variables.CLIPBOARD + "]");
         args.appendChild(inClipboard);
+
+        Element split = doc.createElement("InArgument");
+        split.setAttribute("x:TypeArguments", "s:String[]");
+        split.setAttribute("x:Key", Variables.SPLIT);
+        args.appendChild(split);
     }
 
     private void createOutArgs(Element args) {

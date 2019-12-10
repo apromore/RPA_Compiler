@@ -24,6 +24,7 @@ public class Activity extends UIPathElement {
         activity.setAttribute("xmlns:ui", "http://schemas.uipath.com/workflow/activities");
         activity.setAttribute("xmlns:x", "http://schemas.microsoft.com/winfx/2006/xaml");
         activity.setAttribute("xmlns:sd", "clr-namespace:System.Data;assembly=System.Data");
+        activity.setAttribute("xmlns:s", "clr-namespace:System;assembly=mscorlib");
     }
 
     @Override

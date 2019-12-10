@@ -34,7 +34,7 @@ public class EditField extends UIPathElement {
     }
 
     private void setTypeIntoAttributes() {
-        typeInto.setAttribute("DisplayName", "Edit Field");
+        typeInto.setAttribute("DisplayName", "Edit Field " + action.getTargetName());
         String transformedValue = "[" + Variables.TRANSFORMED_VALUE + "]";
         String actionValue = "\"" + action.getTargetValue() + "\"";
         String text = invokeCode.isElementPresent ? transformedValue : actionValue;

@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +44,10 @@ public class DataTransformer {
         dataTransformationList.forEach(transformation -> {
             JSONObject transformationObject = ((JSONObject) transformation);
             String id = transformationObject.get("id").toString();
-            List<String> instructions = (List<String>) transformationObject.get("data_transformation");
+            List<String> instructions = new ArrayList<>();
+            for (var t : (JSONArray) transformationObject.get("data_transformation")) {
+                instructions.add(String.valueOf(t));
+            }
             transformations.put(id, instructions);
         });
     }
