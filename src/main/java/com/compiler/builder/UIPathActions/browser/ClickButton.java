@@ -13,12 +13,12 @@ public class ClickButton extends UIPathElement {
     private Element click;
     private Action action;
 
-    public ClickButton(Element doSequence, Action action) {
+    public ClickButton(Action action) {
         this.action = action;
-        createClick(doSequence);
+        createClick();
     }
 
-    private void createClick(Element doSequence) {
+    private void createClick() {
         click = doc.createElement("ui:Click");
         setClickAttributes();
         createTarget();

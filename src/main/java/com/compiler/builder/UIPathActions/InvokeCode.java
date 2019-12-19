@@ -13,7 +13,7 @@ public class InvokeCode extends UIPathElement {
     public boolean isElementPresent;
     private Element invokeCode;
 
-    public InvokeCode(Element doSequence, String selector, String input, boolean isTransform) {
+    public InvokeCode(String selector, String input, boolean isTransform) {
         DataTransformer dataTransformer;
         if (isTransform) {
             dataTransformer = new TargetDataTransformer();
@@ -24,11 +24,11 @@ public class InvokeCode extends UIPathElement {
         if (dataTransformer.isDataTransformationPresent(selector)) {
             isElementPresent = true;
             String code = generateCode(selector, dataTransformer, input, isTransform);
-            createInvokeCode(doSequence, code);
+            createInvokeCode(code);
         }
     }
 
-    private void createInvokeCode(Element doSequence, String code) {
+    private void createInvokeCode(String code) {
         invokeCode = doc.createElement("ui:InvokeCode");
         invokeCode.setAttribute("Language", "CSharp");
         invokeCode.setAttribute("Code", code);

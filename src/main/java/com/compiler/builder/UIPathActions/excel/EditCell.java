@@ -8,7 +8,7 @@ public class EditCell extends UIPathElement {
     private Element excelWriteCell;
     private Action action;
 
-    public EditCell(Element doSequence, Action action) {
+    public EditCell(Action action) {
         this.action = action;
         excelWriteCell = doc.createElement("ui:ExcelWriteCell");
         setAttributes();

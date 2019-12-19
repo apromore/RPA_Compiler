@@ -11,19 +11,19 @@ public class EditRange extends UIPathElement implements ExcelRange {
     private Element writeRange;
     private Action action;
 
-    public EditRange(Element doSequence, Action action) {
+    public EditRange(Action action) {
         this.action = action;
-        createWriteRange(doSequence);
+        createWriteRange();
     }
 
-    private void createWriteRange(Element doSequence) {
-        buildDataTable(doSequence);
+    private void createWriteRange() {
+        buildDataTable();
         writeRange = doc.createElement("ui:ExcelWriteRange");
         setAttributes(writeRange, action);
         doSequence.appendChild(writeRange);
     }
 
-    private void buildDataTable(Element doSequence) {
+    private void buildDataTable() {
         Element buildDataTable = doc.createElement("ui:BuildDataTable");
         try {
             TableInfo tableInfo = new TableInfo(action);

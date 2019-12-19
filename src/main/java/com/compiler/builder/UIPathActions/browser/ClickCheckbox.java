@@ -8,12 +8,12 @@ public class ClickCheckbox extends UIPathElement {
     private Element check;
     private Action action;
 
-    public ClickCheckbox(Element doSequence, Action action) {
+    public ClickCheckbox(Action action) {
         this.action = action;
-        createCheck(doSequence);
+        createCheck();
     }
 
-    private void createCheck(Element doSequence) {
+    private void createCheck() {
         check = doc.createElement("ui:Check");
         setAttributes();
         createTarget();

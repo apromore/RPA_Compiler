@@ -11,14 +11,14 @@ public class Paste extends UIPathElement {
     private Action action;
     private InvokeCode invokeCode;
 
-    public Paste(Element doSequence, Action action, boolean isDeclarativeMode) {
+    public Paste(Action action) {
         this.action = action;
-        String input = isDeclarativeMode ? Variables.CELLS : Variables.CLIPBOARD;
-        invokeCode = new InvokeCode(doSequence, action.getTargetName(), input, isDeclarativeMode);
-        createPaste(doSequence);
+        String input = action.isInDeclarativeMode() ? Variables.CELLS : Variables.CLIPBOARD;
+        invokeCode = new InvokeCode(action.getTargetName(), input, action.isInDeclarativeMode());
+        createPaste();
     }
 
-    private void createPaste(Element doSequence) {
+    private void createPaste() {
         typeInto = doc.createElement("ui:TypeInto");
         setPasteAttributes();
         createTarget();

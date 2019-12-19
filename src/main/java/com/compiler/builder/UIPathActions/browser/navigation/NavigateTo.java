@@ -8,12 +8,12 @@ public class NavigateTo extends UIPathElement {
     private Element navigateTo;
     private Action action;
 
-    public NavigateTo(Element doSequence, Action action) {
+    public NavigateTo(Action action) {
         this.action = action;
-        createNavigate(doSequence);
+        createNavigate();
     }
 
-    private void createNavigate(Element doSequence) {
+    private void createNavigate() {
         navigateTo = doc.createElement("ui:NavigateTo");
         setAttributes();
         doSequence.appendChild(navigateTo);

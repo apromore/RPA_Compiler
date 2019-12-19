@@ -9,7 +9,7 @@ public class PasteIntoCell extends UIPathElement {
     private Element writeCell;
     private Action action;
 
-    public PasteIntoCell(Element doSequence, Action action) {
+    public PasteIntoCell(Action action) {
         this.action = action;
 
         writeCell = doc.createElement("ui:ExcelWriteCell");

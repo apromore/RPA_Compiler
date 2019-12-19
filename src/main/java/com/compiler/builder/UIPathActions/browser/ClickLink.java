@@ -8,12 +8,12 @@ public class ClickLink extends UIPathElement {
     private Element click;
     private Action action;
 
-    public ClickLink(Element doSequence, Action action) {
+    public ClickLink(Action action) {
         this.action = action;
-        createClickLink(doSequence);
+        createClickLink();
     }
 
-    private void createClickLink(Element doSequence) {
+    private void createClickLink() {
         click = doc.createElement("ui:Click");
         setAttributes();
         createTarget();

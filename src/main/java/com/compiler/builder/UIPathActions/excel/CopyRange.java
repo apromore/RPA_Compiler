@@ -8,7 +8,7 @@ public class CopyRange extends UIPathElement {
     private Element readRange;
     private Action action;
 
-    public CopyRange(Element doSequence, Action action) {
+    public CopyRange(Action action) {
         this.action = action;
         readRange = doc.createElement("ui:ExcelReadRange");
         setAttributes();

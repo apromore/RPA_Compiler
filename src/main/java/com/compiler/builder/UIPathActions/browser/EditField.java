@@ -11,13 +11,13 @@ public class EditField extends UIPathElement {
     private Action action;
     private InvokeCode invokeCode;
 
-    public EditField(Element doSequence, Action action) {
+    public EditField(Action action) {
         this.action = action;
-        invokeCode = new InvokeCode(doSequence, action.getTargetName(), "\"" + action.getTargetValue() + "\"", false);
-        createTypeInto(doSequence);
+        invokeCode = new InvokeCode(action.getTargetName(), "\"" + action.getTargetValue() + "\"", false);
+        createTypeInto();
     }
 
-    private void createTypeInto(Element doSequence) {
+    private void createTypeInto() {
         typeInto = doc.createElement("ui:TypeInto");
         setTypeIntoAttributes();
         createTarget();

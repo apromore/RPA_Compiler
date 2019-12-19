@@ -11,9 +11,9 @@ public class CopyCell extends UIPathElement {
     private Element excelReadCell;
     private Action action;
 
-    public CopyCell(Element doSequence, Action action, boolean isDeclarativeMode) {
+    public CopyCell(Action action) {
         this.action = action;
-        this.isDeclarativeMode = isDeclarativeMode;
+        this.isDeclarativeMode = action.isInDeclarativeMode();
         createCopyCell(doSequence);
     }
 

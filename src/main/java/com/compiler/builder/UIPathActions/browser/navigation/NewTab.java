@@ -7,13 +7,13 @@ import org.w3c.dom.Element;
 public class NewTab extends UIPathElement implements Tab {
     private Element browserScope;
 
-    public NewTab(Element doSequence, ScriptBuilder scriptBuilder) {
-        createSendHotKey(doSequence);
+    public NewTab(ScriptBuilder scriptBuilder) {
+        createSendHotKey();
         browserScope = createBrowserScope(doc, NEW_TAB_TITLE);
         createBrowserScopeBody(doc, browserScope, scriptBuilder);
     }
 
-    private void createSendHotKey(Element doSequence) {
+    private void createSendHotKey() {
         Element sendHotKey = doc.createElement("ui:SendHotkey");
         sendHotKey.setAttribute("Activate", "True");
         sendHotKey.setAttribute("DisplayName", "Create New Tab");

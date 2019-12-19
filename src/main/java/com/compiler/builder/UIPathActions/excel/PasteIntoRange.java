@@ -8,12 +8,12 @@ public class PasteIntoRange extends UIPathElement implements ExcelRange {
     private Element writeRange;
     private Action action;
 
-    public PasteIntoRange(Element doSequence, Action action) {
+    public PasteIntoRange(Action action) {
         this.action = action;
-        createPasteIntoRange(doSequence);
+        createPasteIntoRange();
     }
 
-    private void createPasteIntoRange(Element doSequence) {
+    private void createPasteIntoRange() {
         writeRange = doc.createElement("ui:ExcelWriteRange");
         setAttributes(writeRange, action);
         doSequence.appendChild(writeRange);

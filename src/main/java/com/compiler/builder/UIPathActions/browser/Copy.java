@@ -9,12 +9,12 @@ public class Copy extends UIPathElement {
     private Element getValue;
     private Action action;
 
-    public Copy(Element doSequence, Action action) {
+    public Copy(Action action) {
         this.action = action;
-        createCopy(doSequence);
+        createCopy();
     }
 
-    private void createCopy(Element doSequence) {
+    private void createCopy() {
         getValue = doc.createElement("ui:GetValue");
         getValue.setAttribute("DisplayName", "Get Text 'INPUT'");
         createTarget();

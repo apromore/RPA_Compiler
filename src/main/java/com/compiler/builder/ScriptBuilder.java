@@ -84,27 +84,21 @@ public class ScriptBuilder {
 
     private void createElementsMap() {
         elements = new HashMap<>();
-        elements.put("editField", (action) -> new EditField(doSequence, action));
-        elements.put("editCell", (action) -> new EditCell(doSequence, action));
-        elements.put("editRange", (action) -> new EditRange(doSequence, action));
-        elements.put("copy", (action) -> new Copy(doSequence, action));
-        elements.put("copyCell", (action) -> {
-            boolean isDeclarativeMode = action.isInDeclarativeMode();
-            new CopyCell(doSequence, action, isDeclarativeMode);
-        });
-        elements.put("copyRange", (action) -> new CopyRange(doSequence, action));
-        elements.put("paste", (action) -> {
-            boolean isTransform = action.isInDeclarativeMode();
-            new Paste(doSequence, action, isTransform);
-        });
-        elements.put("pasteIntoCell", (action) -> new PasteIntoCell(doSequence, action));
-        elements.put("pasteIntoRange", (action) -> new PasteIntoRange(doSequence, action));
-        elements.put("clickLink", (action) -> new ClickLink(doSequence, action));
-        elements.put("clickButton", (action) -> new ClickButton(doSequence, action));
-        elements.put("clickCheckbox", (action) -> new ClickCheckbox(doSequence, action));
-        elements.put("navigate_to", (action) -> new NavigateTo(doSequence, action));
+        elements.put("editField", EditField::new);
+        elements.put("editCell", EditCell::new);
+        elements.put("editRange", EditRange::new);
+        elements.put("copy", Copy::new);
+        elements.put("copyCell", CopyCell::new);
+        elements.put("copyRange", CopyRange::new);
+        elements.put("paste", Paste::new);
+        elements.put("pasteIntoCell", PasteIntoCell::new);
+        elements.put("pasteIntoRange", PasteIntoRange::new);
+        elements.put("clickLink", ClickLink::new);
+        elements.put("clickButton", ClickButton::new);
+        elements.put("clickCheckbox", ClickCheckbox::new);
+        elements.put("navigate_to", NavigateTo::new);
         elements.put("createNewTab", (action) -> {
-            NewTab newTab = new NewTab(doSequence, this);
+            NewTab newTab = new NewTab(this);
             mainSequence.appendChild(newTab);
         });
         elements.put("selectTab", (action) -> {
@@ -128,6 +122,7 @@ public class ScriptBuilder {
     public Element createDoSequence() {
         doSequence = doc.createElement("Sequence");
         doSequence.setAttribute("DisplayName", "Do");
+        UIPathElement.setDoSequence(doSequence);
 
         return doSequence;
     }
