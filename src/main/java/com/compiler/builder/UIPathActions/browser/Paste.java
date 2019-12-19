@@ -13,7 +13,8 @@ public class Paste extends UIPathElement {
 
     public Paste(Element doSequence, Action action, boolean isDeclarativeMode) {
         this.action = action;
-        invokeCode = new InvokeCode(doSequence, action.getTargetName(), Variables.CLIPBOARD, isDeclarativeMode);
+        String input = isDeclarativeMode ? Variables.CELLS : Variables.CLIPBOARD;
+        invokeCode = new InvokeCode(doSequence, action.getTargetName(), input, isDeclarativeMode);
         createPaste(doSequence);
     }
 
