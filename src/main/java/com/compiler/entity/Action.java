@@ -66,6 +66,8 @@ public class Action {
     @CsvBindByPosition(position = 19)
     private String targetInnerHTML;
 
+    private boolean declaredColumn = false;
+
     private boolean inDeclarativeMode = false;
 
     public static Action createActionFromArray(String[] data) {
@@ -101,5 +103,13 @@ public class Action {
 
     public void setInDeclarativeMode(boolean inDeclarativeMode) {
         this.inDeclarativeMode = inDeclarativeMode;
+    }
+
+    public boolean isDeclaredColumn() {
+        return declaredColumn;
+    }
+
+    public void setDeclaredColumn(boolean declaredColumn) {
+        this.declaredColumn = declaredColumn;
     }
 }

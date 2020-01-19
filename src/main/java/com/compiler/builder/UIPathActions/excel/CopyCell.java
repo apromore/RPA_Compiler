@@ -38,8 +38,13 @@ public class CopyCell extends UIPathElement {
 
     private void setCopyCellAttributes() {
         if (isDeclarativeMode) {
-            String cell = "[&quot;" + action.getTargetId() + "&quot; +" + Arguments.ROW + "]";
-            excelReadCell.setAttribute("Cell", cell);
+            if (action.isDeclaredColumn()) {
+                String cell = "[&quot;" + action.getTargetId() + "&quot; +" + Arguments.ROW + "]";
+                excelReadCell.setAttribute("Cell", cell);
+            } else {
+                String cell = "[" + Arguments.COLUMN + " + &quot;" + action.getTargetId() + "&quot;]";
+                excelReadCell.setAttribute("Cell", cell);
+            }
         } else {
             excelReadCell.setAttribute("Cell", action.getTargetId());
         }

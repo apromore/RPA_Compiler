@@ -79,10 +79,19 @@ public class DeclarativeCompiler {
         } else if (app.equals("Excel")) {
             action.setEventType("copyCell");
             JSONObject obj = (JSONObject) transformation.get("source");
-            for (var cell : (JSONArray) obj.get("cell")) {
-                action.setTargetId(cell.toString());
-                action.setSheetName(obj.get("sheet").toString());
-                scriptBuilder.createUIPathAction(action);
+            if(obj.containsKey("columns")){
+                for (var column : (JSONArray) obj.get("columns")) {
+                    action.setDeclaredColumn(true);
+                    action.setTargetId(column.toString());
+                    action.setSheetName(obj.get("sheet").toString());
+                    scriptBuilder.createUIPathAction(action);
+                }
+            } else if(obj.containsKey("rows")){
+                for (var row : (JSONArray) obj.get("rows")) {
+                    action.setTargetId(row.toString());
+                    action.setSheetName(obj.get("sheet").toString());
+                    scriptBuilder.createUIPathAction(action);
+                }
             }
         }
     }

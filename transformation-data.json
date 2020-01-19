@@ -3,7 +3,7 @@
     "sourceApp": "Excel",
     "sourceURL": "C:\\Users\\dvsta\\Downloads\\StudentRecords.xlsx",
     "source": {
-      "cell": ["A", "B"],
+      "columns": ["A", "B"],
       "sheet": "Sheet1"
     },
 
@@ -19,7 +19,7 @@
     "sourceApp": "Excel",
     "sourceURL": "C:\\Users\\dvsta\\Downloads\\StudentRecords.xlsx",
     "source": {
-      "cell": ["D"],
+      "rows": ["2"],
       "sheet": "Sheet1"
     },
 
